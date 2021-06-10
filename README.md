@@ -1,4 +1,4 @@
-# Basic SHA-256 & SHA-512 in C
+# Basic SHA-256 & SHA-512 Implementations in C
 
 Basic implementation of SHA-256 and SHA-512 in C. 
 
