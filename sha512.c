@@ -57,24 +57,24 @@ uint64_t u8tou64(uint8_t *b8, int s) {
 	return u64t;
 }
 
-uint64_t rightrotn32(uint64_t u64, int n) {
+uint64_t rightrotn64(uint64_t u64, int n) {
 	return (u64 >> n) | (u64 << (64 - n));
 }
 
 uint64_t sigma0(uint64_t u64) {
-	return rightrotn32(u64, 1) ^ rightrotn32(u64, 8) ^ (u64 >> 7);
+	return rightrotn64(u64, 1) ^ rightrotn64(u64, 8) ^ (u64 >> 7);
 }
 
 uint64_t sigma1(uint64_t u64) {
-	return rightrotn32(u64, 19) ^ rightrotn32(u64, 61) ^ (u64 >> 6);
+	return rightrotn64(u64, 19) ^ rightrotn64(u64, 61) ^ (u64 >> 6);
 }
 
 uint64_t Sigma0(uint64_t u64) {
-	return rightrotn32(u64, 28) ^ rightrotn32(u64, 34) ^ rightrotn32(u64, 39);
+	return rightrotn64(u64, 28) ^ rightrotn64(u64, 34) ^ rightrotn64(u64, 39);
 }
 
 uint64_t Sigma1(uint64_t u64) {
-	return rightrotn32(u64, 14) ^ rightrotn32(u64, 18) ^ rightrotn32(u64, 41);
+	return rightrotn64(u64, 14) ^ rightrotn64(u64, 18) ^ rightrotn64(u64, 41);
 }
 
 uint64_t choice(uint64_t x, uint64_t y, uint64_t z) {
@@ -198,7 +198,7 @@ int main(int argc, char *argv[]) {
 		}
 		++argv_index;
 	} else { 
-	// sha256 hash the provided argv1 argument
+	// sha512 hash the provided argv1 argument
 		if (argc > 2) {
 			printf("%s\n", "error: too many arguments");
 			return -1;
